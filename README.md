@@ -9,7 +9,8 @@ npm i -g https://github.com/HarryLafranc/nexrender-action-handbrake
 
 ## Usage
 
-```actions:{
+```
+actions:{
     postrender:[{
         module: "nexrender-action-handbrake",
         output: "my-encoded-video.mp4"
