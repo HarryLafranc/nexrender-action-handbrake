@@ -31,12 +31,12 @@ module.exports = (job, settings, options, type) => {
             })
             .on('progress', progress => {
                 if(options.debug){
-                    console.log(
+                    settings.logger.log(
                         `[${job.uid}] [action-handbrake] percent complete : ${progress.percentComplete}, ETA: ${progress.eta}`
                     )
                 }
             })
-            .on('complete', () => {
+            .on('complete', complete => {
                 if(options.eraseInput){
                     settings.logger.log(`[${job.uid}] [action-handbrake] erasing input ${input}`)
                     fs.unlinkSync(input)
