@@ -36,13 +36,13 @@ module.exports = (job, settings, options, type) => {
                     )
                 }
             })
-            .on('end', () => {
+            .on('complete', () => {
                 if(options.eraseInput){
                     settings.logger.log(`[${job.uid}] [action-handbrake] erasing input ${input}`)
                     fs.unlinkSync(input)
                 }
 
-                settings.logger.log(`[${job.uid}] [action-handbrake] done`)
+                settings.logger.log(`[${job.uid}] [action-handbrake] encoding complete`)
                 resolve(job);
             })
         });
