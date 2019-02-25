@@ -29,5 +29,4 @@ module.exports = (job, settings, options, type) => {
                 resolve(job);
             })
         });
-    });
 }
