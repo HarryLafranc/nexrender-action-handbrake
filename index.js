@@ -18,7 +18,7 @@ module.exports = (job, settings, options, type) => {
             output = options.output;
         }
         else{
-            // if there is not output specified, we use outputFilename
+            // if there is no output specified, we use outputFilename
             // (or 'encoded' by default) and outputExt as the extension
             // (or mp4 by default)
             filename = `${options.outputFilename || "encoded"}.${options.outputExt || "mp4"}`;

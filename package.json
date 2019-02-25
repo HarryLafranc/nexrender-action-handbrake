@@ -9,6 +9,7 @@
   "author": "harrylafranc",
   "license": "ISC",
   "dependencies": {
-    "handbrake-js": "^3.0.8"
+    "handbrake-js": "^3.0.8",
+    "path": "^0.12.7"
   }
 }
