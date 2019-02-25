@@ -11,20 +11,10 @@ module.exports = (job, settings, options, type) => {
 
     return new Promise((resolve, reject) => {
         let input = options.input || job.output;
-        let output;
-        let filename;
+        let output = options.output || "encoded.mp4";
 
-        if(options.output){
-            output = options.output;
-        }
-        else{
-            // if there is no output specified, we use outputFilename
-            // (or 'encoded' by default) and outputExt as the extension
-            // (or mp4 by default)
-            filename = `${options.outputFilename || "encoded"}.${options.outputExt || "mp4"}`;
-
-            output = path.join(job.workpath, filename);
-        }
+        if (!path.isAbsolute(input)) input = path.join(job.workpath, input);
+        if (!path.isAbsolute(output)) output = path.join(job.workpath, output);
 
         if(options.debug){
             settings.logger.log(`[${job.uid}] [action-handbrake] output is set to ${output}`)
