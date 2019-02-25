@@ -9,6 +9,6 @@
   "author": "harrylafranc",
   "license": "ISC",
   "dependencies": {
-    "hbjs": "^0.22.10"
+    "handbrake-js": "^3.0.8"
   }
 }
