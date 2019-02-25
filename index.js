@@ -1,6 +1,6 @@
 const {name}  = require('./package.json')
 const hbjs = require('handbrake-js');
-const path    = require('path')
+const path = require('path')
 
 module.exports = (job, settings, options, type) => {
     if (type != 'postrender') {
@@ -10,9 +10,9 @@ module.exports = (job, settings, options, type) => {
     settings.logger.log(`[${job.uid}] starting action-handbrake action`)
 
     return new Promise((resolve, reject) => {
-        // Handbrake
         let input = options.input || job.output;
-        let output, filename;
+        let output;
+        let filename;
 
         if(options.output){
             output = options.output;
@@ -30,7 +30,7 @@ module.exports = (job, settings, options, type) => {
             settings.logger.log(`[${job.uid}] [action-handbrake] output is set to ${output}`)
         }
 
-        hbjs.spawn({ input: input, output: options.output })
+        hbjs.spawn({ input: input, output: output })
             .on('error', err => {
                 // invalid user input, no video found etc
                 if(options.debug){
