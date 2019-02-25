@@ -42,6 +42,7 @@ module.exports = (job, settings, options, type) => {
                     fs.unlinkSync(input)
                 }
 
+                settings.logger.log(`[${job.uid}] [action-handbrake] done`)
                 resolve(job);
             })
         });
