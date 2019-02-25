@@ -1,6 +1,7 @@
 const {name}  = require('./package.json')
 const hbjs = require('handbrake-js');
 const path = require('path')
+const fs = require('fs')
 
 module.exports = (job, settings, options, type) => {
     if (type != 'postrender') {
@@ -36,6 +37,11 @@ module.exports = (job, settings, options, type) => {
                 }
             })
             .on('end', () => {
+                if(options.eraseInput){
+                    settings.logger.log(`[${job.uid}] [action-handbrake] erasing input ${input}`)
+                    fs.unlinkSync(input)
+                }
+
                 resolve(job);
             })
         });
