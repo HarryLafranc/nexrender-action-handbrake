@@ -25,6 +25,7 @@ module.exports = (job, settings, options, type) => {
             .on('error', err => {
                 // invalid user input, no video found etc
                 if(options.debug){
+                    console.log("Error with action-handbrake")
                     console.log(err);
                 }
                 return reject(new Error('Error in action-handbrake module'));
